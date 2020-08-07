@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using VCS.Data;
 
 namespace VCS.Controllers
 {
@@ -7,8 +8,9 @@ namespace VCS.Controllers
     {
         private VideoDbContext context;
 
-        public VideoController()
+        public VideoController(VideoDbContext dbContext)
         {
+            context = dbContext;
         }
     }
 }

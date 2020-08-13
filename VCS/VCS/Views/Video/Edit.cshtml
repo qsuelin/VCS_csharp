@@ -1,0 +1,24 @@
+﻿@model VCS.ViewModel.EditViewModel
+
+<div>
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <th>Tag</th>
+            <td>@Model.TagText</td>
+        </tr>
+    </table>
+</div>
+
+<form asp-controller="Video" asp-action="Edit" method="post">
+    <input type="hidden" value="@Model.VideoId" name="VideoId" />
+    <div class="form-group">
+        <label asp-for="TagName">Add Tag</label>
+        <input type="text" asp-for="TagName" />
+        <span asp-validation-for="TagName"></span>
+    </div>
+    <input type="submit" value="Apply" />
+</form>

@@ -1,0 +1,30 @@
+﻿@model VCS.ViewModel.ListViewModel
+
+
+@if (Model.VideoList.Count == 0)
+{
+    <p>OOPS! No videos yet!</p>
+}
+else
+{
+    <div>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Channel</th>
+                <th>Date</th>
+                <th>Tag</th>
+            </tr>
+            <tr>
+                @foreach (Video video in Model.VideoList)
+                {
+                    <td>@video.Title</td>
+                    <td>@video.Channel</td>
+                    <td>@video.Date</td>
+                    /*<td>video.Tag</td>*/
+                }
+            </tr>
+
+        </table>
+    </div>
+}

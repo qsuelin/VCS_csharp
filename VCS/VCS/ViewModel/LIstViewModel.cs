@@ -4,36 +4,31 @@ using VCS.Models;
 
 namespace VCS.ViewModel
 {
-    public class EditViewModel
+    public class ListViewModel
     {
         public int VideoId { get; set; }
         public string Title { get; set; }
+        public string Channel { get; set;}
+        public string Date { get; set; }
         public string TagText { get; set; }
-        public List<VideoTag> VideoTags {get; set;}
-        public string TagName { get; set; }
 
-        public EditViewModel(Video theVideo, List<VideoTag> videoTags)
+        public ListViewModel (Video theVideo, List<VideoTag> videoTags)
         {
             VideoId = theVideo.Id;
             Title = theVideo.Title;
-            VideoTags = videoTags;
+            Channel = theVideo.Channel;
+            Date = theVideo.Date.ToShortDateString();
 
             TagText = "";
-            for (int i = 0; i < VideoTags.Count; i++)
+            for (int i = 0; i < videoTags.Count; i++)
             {
-                TagText += VideoTags[i].Tag.Name;
-                if (i < VideoTags.Count - 1)
+                TagText += videoTags[i].Tag.Name;
+                if (i < videoTags.Count - 1)
                 {
                     TagText += ", ";
                 }
             }
-        }
 
-        public EditViewModel()
-        {
         }
-
     }
-        
-    
 }

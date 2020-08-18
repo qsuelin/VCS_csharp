@@ -10,7 +10,7 @@ namespace VCS.Models
 
         public string Channel { get; set; }
         public DateTime Date { get; set; }
- 
+
         public DateTime Duration { get; set; }
         public string Size { get; set; }
         public string Resolution { get; set; }

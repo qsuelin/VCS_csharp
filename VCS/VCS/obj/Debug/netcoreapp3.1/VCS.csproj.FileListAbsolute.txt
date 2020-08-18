@@ -166,3 +166,4 @@
 /Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/obj/Debug/netcoreapp3.1/Razor/Views/Video/Detail.cshtml.g.cs
 /Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/obj/Debug/netcoreapp3.1/Razor/Views/Video/Edit.cshtml.g.cs
 /Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/obj/Debug/netcoreapp3.1/Razor/Views/Video/Index.cshtml.g.cs
+/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/obj/Debug/netcoreapp3.1/Razor/Views/Search/Index.cshtml.g.cs

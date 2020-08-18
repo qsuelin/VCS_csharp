@@ -11,7 +11,7 @@ using VCS.ViewModel;
 
 namespace VCS.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class VideoController : Controller
     {
         private VideoDbContext context;
@@ -29,29 +29,23 @@ namespace VCS.Controllers
             var userId = _userManager.GetUserId(User);
 
             List<Video> videoList = context.Videos.ToList();
-            ListViewModel listViewModel = new ListViewModel(videoList);
-            return View(listViewModel);
+            List<ListViewModel> displayVideos = new List<ListViewModel>();
+
+            foreach (var video in videoList)
+            {
+                List<VideoTag> videoTags = context.VideoTags
+                    .Where(vt => vt.VideoId == video.Id)
+                    .Include(vt => vt.Tag)
+                    .Include(vt => vt.Video)
+                    .ToList();
+
+                ListViewModel newDisplayJob = new ListViewModel(video, videoTags);
+                displayVideos.Add(newDisplayJob);
+            }
+
+            ViewBag.jobs = displayVideos;
+            return View();
         }
-
-        //[HttpGet]
-        //public IActionResult Search()
-        //{
-            
-        //    return View();
-        //}
-
-        //[AllowAnonymous]
-        //[HttpPost]
-        //public IActionResult Search(SearchViewModel searchViewModel)
-        //{
-        //    //var userId = _userManager.GetUserId(User);
-        //    string _toSearch = searchViewModel.ToSearch;
-        //    List<Video> videoList = context.Videos
-        //        .Include(e => e.Tags)
-        //        .Where(e => e.Title.Contains(_toSearch) || e.Tags.Contains(new Tag(_toSearch)))
-        //        .ToList();
-        //    return View(videoList);
-        //}
 
         public IActionResult Detail(int id)
         {
@@ -65,7 +59,11 @@ namespace VCS.Controllers
         public IActionResult Edit(int id)
         {
             Video theVideo = context.Videos.Find(id);
-            List<VideoTag> videoTags = context.VideoTags.ToList();
+            List<VideoTag> videoTags = context.VideoTags
+                .Where(vt => vt.VideoId == id)
+                .Include(vt => vt.Video)
+                .Include(vt => vt.Tag)
+                .ToList();
 
             EditViewModel editViewModel = new EditViewModel(theVideo, videoTags);
             return View(editViewModel);
@@ -74,33 +72,111 @@ namespace VCS.Controllers
         [HttpPost]
         public IActionResult Edit(EditViewModel editViewModel)
         {
+            int videoId = editViewModel.VideoId;
+
             if (ModelState.IsValid)
             {
-                int videoId = editViewModel.VideoId;
                 string newTagName = editViewModel.TagName;
                 int tagId;
+                VideoTag videoTag;
 
+                //input tag nonexists
                 if (context.Tags.Where(t => t.Name == newTagName).SingleOrDefault() == null)
                 {
                     Tag newTag = new Tag(newTagName);
                     tagId = newTag.Id;
-                } else
+
+                    videoTag = new VideoTag
+                    {
+                        VideoId = videoId,
+                        Tag = newTag,
+                        TagId = tagId
+                    };
+
+                    context.VideoTags.Add(videoTag);
+                    context.SaveChanges();
+                }
+                // input tag exists
+                else
                 {
                     tagId = context.Tags.Where(t => t.Name == newTagName).Single().Id;
+
+                    List<VideoTag> existingVideoTags = context.VideoTags
+                    .Where(vt => vt.VideoId == videoId)
+                    .Where(vt => vt.TagId == tagId)
+                    .ToList();
+
+                    // if pair nonexsits, add pair
+                    if (existingVideoTags.Count == 0)
+                    {
+                        videoTag = new VideoTag
+                        {
+                            VideoId = videoId,
+                            TagId = tagId
+                        };
+
+                        context.VideoTags.Add(videoTag);
+                        context.SaveChanges();
+                    }
+                    
                 }
-
-                VideoTag videoTag = new VideoTag
-                {
-                    VideoId = videoId,
-                    TagId = tagId
-                };
-
-                context.VideoTags.Add(videoTag);
-                context.SaveChanges();
-
             }
-            return View(editViewModel);
+            return Redirect("/Video/Edit/" + videoId);
         }
+
+        //public IActionResult Results(string searchTerm)
+        //{
+        //    List<Video> videos;
+        //    List<ListViewModel> displayVideos = new List<ListViewModel>();
+
+        //    if (string.IsNullOrEmpty(searchTerm))
+        //    {
+        //        videos = context.Videos
+        //            .ToList();
+
+        //        foreach (var video in videos)
+        //        {
+        //            List<VideoTag> videoTags = context.VideoTags
+        //                .Where(vt => vt.VideoId == video.Id)
+        //                .Include(vt => vt.Tag)
+        //                .ToList();
+
+        //            ListViewModel newDisplayVideo = new ListViewModel(video, videoTags);
+        //            displayVideos.Add(newDisplayVideo);
+        //        }
+        //    }
+
+        //    else
+        //    {
+        //        videos = context.Videos
+        //            .Where(v => v.Title.Contains(searchTerm))
+        //            .ToList();
+
+        //        List<VideoTag> videoTags = context.VideoTags
+        //            .Where(v => v.Tag.Name.Contains(searchTerm))
+        //            .Include(v => v.Video)
+        //            .ToList();
+
+        //        foreach (var video in videoTags)
+        //        {
+        //            Video foundVideo = context.Videos
+        //                .Single(v => v.Id == video.VideoId);
+
+        //            List<VideoTag> displayTags = context.VideoTags
+        //                .Where(vt => vt.VideoId == foundVideo.Id)
+        //                .Include(vt => vt.Tag)
+        //                .ToList();
+
+        //            ListViewModel newDisplayVideo = new ListViewModel(foundVideo, displayTags);
+        //            displayVideos.Add(newDisplayVideo);
+        //        }
+        //    }
+
+        //    ViewBag.videos = displayVideos;
+
+        //    return View("Index");
+        //}
+
 
     }
 }

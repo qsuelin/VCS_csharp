@@ -1,14 +1,9 @@
 ﻿<Properties StartupConfiguration="{3A4DB5E5-702A-4535-9AD7-BEA0432A70C5}|VCS">
-  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Views/Video/Edit.cshtml">
     <Files>
-      <File FileName="VCS/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="VCS/Controllers/VideoController.cs" Line="9" Column="1" />
-      <File FileName="VCS/Data/VideoDbContext.cs" Line="13" Column="1" />
-      <File FileName="VCS/Models/Video.cs" Line="11" Column="10" />
-      <File FileName="VCS/Models/Tag.cs" Line="8" Column="1" />
-      <File FileName="VCS/Models/VideoTag.cs" Line="10" Column="1" />
-      <File FileName="VCS/Views/Shared/_Layout.cshtml" Line="29" Column="30" />
-      <File FileName="VCS/appsettings.json" Line="10" Column="1" />
+      <File FileName="VCS/Views/Video/Index.cshtml" Line="6" Column="35" />
+      <File FileName="VCS/Views/Search/Index.cshtml" Line="12" Column="1" />
+      <File FileName="VCS/Views/Video/Edit.cshtml" Line="23" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,22 +14,32 @@
                 <Node name="FrameworkReferences" expanded="True" />
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
+              <Node name="Areas" expanded="True">
+                <Node name="Identity" expanded="True">
+                  <Node name="Pages" expanded="True">
+                    <Node name="Account" expanded="True">
+                      <Node name="Login.cshtml" expanded="True" />
+                      <Node name="Logout.cshtml" expanded="True" />
+                      <Node name="RegisterConfirmation.cshtml" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
+              <Node name="ViewModel" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
+                <Node name="Search" expanded="True" />
                 <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-                <Node name="js" expanded="True" />
-                <Node name="lib" expanded="True">
-                  <Node name="jquery-validation-unobtrusive" expanded="True" />
+                <Node name="Video" expanded="True">
+                  <Node name="Edit.cshtml" selected="True" />
                 </Node>
               </Node>
-              <Node name="appsettings.json" expanded="True" selected="True" />
+              <Node name="wwwroot" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -45,7 +50,9 @@
   <MonoDevelop.Ide.ItemProperties.VCS PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/Models/Video.cs" relfile="VCS/Models/Video.cs" line="5" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

@@ -1,4 +1,7 @@
-﻿
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@model IEnumerable<VCS.ViewModel.ListViewModel>
 
 <div class="container body-content">
     <form action="/search/results" method="post">
@@ -17,6 +20,14 @@
 }
 else
 {
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }),
+    new X.PagedList.Mvc.Core.Common.PagedListRenderOptions
+    {
+        DisplayItemSliceAndTotal = true,
+        ContainerDivClasses = new[] { "navigation" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+    })
     <div>
         <table class="table">
             <tr>
@@ -25,20 +36,30 @@ else
                 <th>Date</th>
                 <th>Tag</th>
             </tr>
-                @foreach (var video in ViewBag.jobs)
-                {
-                    <tr>
-                        <td>@video.Title</td>
-                        <td>@video.Channel</td>
-                        <td>@video.Date</td>
-                        <td>@video.TagText</td>
-                        <td><a asp-controller="Video" asp-action="Detail" asp-route-id=@video.VideoId>Detail</a></td>
-                        <td><a asp-controller="Video" asp-action="Edit" asp-route-id=@video.VideoId>Edit</a></td>
-                    </tr>
-                   
-                }
-            
+            @foreach (var video in Model)
+            {
+                <tr>
+                    <td>@video.Title</td>
+                    <td>@video.Channel</td>
+                    <td>@video.Date</td>
+                    <td>@video.TagText</td>
+                    <td><a asp-controller="Video" asp-action="Detail" asp-route-id=@video.VideoId>Detail</a></td>
+                    <td><a asp-controller="Video" asp-action="Edit" asp-route-id=@video.VideoId>Edit</a></td>
+                </tr>
+
+            }
+
 
         </table>
     </div>
+}
+
+
+@section Scripts{
+    <script>// Workaround to fix style of text for showing items .. through ..
+        // Problem related to Boostrap 4 according to issue in link below
+        // https://github.com/dncuug/X.PagedList/issues/127
+        $(document).ready(function () {
+            $('ul.pagination > li.disabled > a').addClass('page-link');
+        });</script>
 }

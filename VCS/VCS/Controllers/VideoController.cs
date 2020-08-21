@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using VCS.Data;
 using VCS.Models;
 using VCS.ViewModel;
+using X.PagedList;
 
 namespace VCS.Controllers
 {
@@ -24,9 +25,13 @@ namespace VCS.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Index()
+        public IActionResult Index(int? page) //Add page para
         {
             var userId = _userManager.GetUserId(User);
+
+            var pageNumber = page ?? 1;
+            int pageSize = 30;
+            //var videoList = context.Videos.ToPagedList(pageNumber, pageSize);
 
             List<Video> videoList = context.Videos.ToList();
             List<ListViewModel> displayVideos = new List<ListViewModel>();
@@ -44,7 +49,9 @@ namespace VCS.Controllers
             }
 
             ViewBag.jobs = displayVideos;
-            return View();
+            var onePageofVideos = displayVideos.ToPagedList(pageNumber, pageSize);
+            
+            return View(onePageofVideos);
         }
 
         public IActionResult Detail(int id)

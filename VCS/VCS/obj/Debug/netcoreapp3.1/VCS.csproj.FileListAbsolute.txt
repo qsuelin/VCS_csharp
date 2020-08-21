@@ -167,3 +167,10 @@
 /Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/obj/Debug/netcoreapp3.1/Razor/Views/Video/Edit.cshtml.g.cs
 /Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/obj/Debug/netcoreapp3.1/Razor/Views/Video/Index.cshtml.g.cs
 /Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/obj/Debug/netcoreapp3.1/Razor/Views/Search/Index.cshtml.g.cs
+/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/bin/Debug/netcoreapp3.1/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll
+/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/bin/Debug/netcoreapp3.1/X.PagedList.dll
+/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/bin/Debug/netcoreapp3.1/X.PagedList.Mvc.Core.dll
+/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/bin/Debug/netcoreapp3.1/X.PagedList.Web.Common.dll

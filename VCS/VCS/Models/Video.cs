@@ -11,13 +11,12 @@ namespace VCS.Models
         public string Channel { get; set; }
         public DateTime Date { get; set; }
 
-        public DateTime Duration { get; set; }
+        public string Duration { get; set; }
         public string Size { get; set; }
         public string Resolution { get; set; }
         public string Container { get; set; }
         public string Video_Codec { get; set; }
         public string Audio_Codec { get; set; }
-        public string Video_bitrate { get; set; }
 
         //public List<Tag> Tags { get; set; }
 

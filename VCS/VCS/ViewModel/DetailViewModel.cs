@@ -8,13 +8,12 @@ namespace VCS.ViewModel
     {
         public int VideoId { get; set; }
         public string Title { get; set; }
-        public DateTime Duration { get; set; }
+        public string Duration { get; set; }
         public string Size { get; set; }
         public string Resolution { get; set; }
         public string Container { get; set; }
         public string Video_Codec { get; set; }
         public string Audio_Codec { get; set; }
-        public string Video_bitrate { get; set; }
 
 
         public DetailViewModel(Video theVideo)
@@ -27,7 +26,6 @@ namespace VCS.ViewModel
             Container = theVideo.Container;
             Video_Codec = theVideo.Video_Codec;
             Audio_Codec = theVideo.Audio_Codec;
-            Video_bitrate = theVideo.Video_bitrate;
 
         }
 

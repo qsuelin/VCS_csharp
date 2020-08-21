@@ -25,17 +25,19 @@ else
                 <th>Date</th>
                 <th>Tag</th>
             </tr>
-            <tr>
                 @foreach (var video in ViewBag.jobs)
                 {
-                    <td>@video.Title</td>
-                    <td>@video.Channel</td>
-                    <td>@video.Date</td>
-                    <td>@video.TagText</td>
-                    <td><a asp-controller="Video" asp-action="Detail" asp-route-id=@video.VideoId>Detail</a></td>
-                    <td><a asp-controller="Video" asp-action="Edit" asp-route-id=@video.VideoId>Edit</a></td>
+                    <tr>
+                        <td>@video.Title</td>
+                        <td>@video.Channel</td>
+                        <td>@video.Date</td>
+                        <td>@video.TagText</td>
+                        <td><a asp-controller="Video" asp-action="Detail" asp-route-id=@video.VideoId>Detail</a></td>
+                        <td><a asp-controller="Video" asp-action="Edit" asp-route-id=@video.VideoId>Edit</a></td>
+                    </tr>
+                   
                 }
-            </tr>
+            
 
         </table>
     </div>

@@ -11,7 +11,7 @@ using VCS.ViewModel;
 
 namespace VCS.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class VideoController : Controller
     {
         private VideoDbContext context;

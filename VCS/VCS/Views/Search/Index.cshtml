@@ -20,15 +20,17 @@
                 <th>Date</th>
                 <th>Tag</th>
             </tr>
-            <tr>
+            
                 @foreach (var video in ViewBag.videos)
                 {
-                    <td>@video.Title</td>
-                    <td>@video.Channel</td>
-                    <td>@video.Date</td>
-                    <td>@video.TagText</td>
+                    <tr>
+                        <td>@video.Title</td>
+                        <td>@video.Channel</td>
+                        <td>@video.Date</td>
+                        <td>@video.TagText</td>
+                    </tr>
                 }
-            </tr>
+            
 
         </table>
     </div>   

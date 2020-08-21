@@ -247,8 +247,8 @@ namespace VCS.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("Duration")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("Duration")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Resolution")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -263,9 +263,6 @@ namespace VCS.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Video_Codec")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Video_bitrate")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");

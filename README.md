@@ -11,6 +11,27 @@ The goal of the video catalog system(VCS) application is to manage TB-size local
 
 # Stack
 1. Video ingest: Python, ffmpeg library
-1. Server: ASP.NET
+1. Server: ASP.NET Core
 1. Front end: BootStrap, Razor Template
 1. Database: MySQL
+
+
+# Cracking Down Challenges
+1. Implement a de-duplicate algorithm   
+    * Duplicated files
+    * Deleted files
+    * Moved files
+    * Renamed files
+1. Detecting corrupt, truncated, damaged files
+1. Robust parsing script for various format of video files
+    * Not all formats store duration information at stream level, eg: Matroska
+    * Some files don't have standard filenames
+1. Manual duplication handling
+    * show the complete list of alternative paths
+    * ask user to pick the one to keep
+    * call I/O to delete other files on local disk
+
+
+# ER Diagram
+
+# UML Activity/Sequence Diagram

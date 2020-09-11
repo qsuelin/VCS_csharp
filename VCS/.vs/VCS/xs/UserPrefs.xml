@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Views/Video/Edit.cshtml">
     <Files>
       <File FileName="VCS/Views/Video/Index.cshtml" Line="6" Column="35" />
-      <File FileName="VCS/Views/Search/Index.cshtml" Line="12" Column="1" />
-      <File FileName="VCS/Views/Video/Edit.cshtml" Line="23" Column="42" />
+      <File FileName="VCS/Views/Search/Index.cshtml" Line="4" Column="1" />
+      <File FileName="VCS/Views/Video/Edit.cshtml" Line="23" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

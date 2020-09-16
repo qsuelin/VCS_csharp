@@ -20,32 +20,25 @@ def populate_file(path: Path):
     metadata = parse_video(path)
     with UseDatabase(config) as cursor:
         _SQL = """
-               insert into Videos (title, Channel, Date, Container, Size, Duration, Resolution, Video_Codec, Audio_Codec)
-               values
-               (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-        if 'duration' in metadata:
-            if metadata['date'] is None:
-                cursor.execute(_SQL, (
-                    metadata['title'],
-                    metadata['channel'],
-                    None,
-                    metadata['container'],
-                    metadata['size'],
-                    metadata['duration'],
-                    metadata['resolution'],
-                    metadata['video_codec'],
-                    metadata['audio_codec']))
-            else:
-                cursor.execute(_SQL, (
-                    metadata['title'],
-                    metadata['channel'],
-                    str(metadata['date']),
-                    metadata['container'],
-                    metadata['size'],
-                    metadata['duration'],
-                    metadata['resolution'],
-                    metadata['video_codec'],
-                    metadata['audio_codec']))
+        insert into Videos 
+        (Id, Title, Channel, Date, Container, Dir, Size, Duration, Width, Height, Video_Codec, Audio_Codec) 
+        values 
+        (%d, %s, %s, %s, %s, %s, %d, %d, %d, %d, %s, %s)
+        """
+
+        cursor.execute(_SQL, (metadata['id'],
+                              metadata['title'],
+                              metadata['channel'],
+                              metadata['date'],
+                              metadata['container'],
+                              metadata['dir'],
+                              metadata['size'],
+                              metadata['duration'],
+                              metadata['width'],
+                              metadata['height'],
+                              metadata['video_codec'],
+                              metadata['audio_codec']
+                              ))
 
 
 if __name__ == '__main__':

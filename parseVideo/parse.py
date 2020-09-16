@@ -1,3 +1,5 @@
+import hashlib
+
 from moviepy.editor import VideoFileClip
 import time
 from pathlib import Path
@@ -11,39 +13,50 @@ import pprint
 
 
 def parse_video(path: Path) -> dict:
-    metadata = {}
+    metadata = {k: None for k in
+                ['title', 'channel', 'date', 'container', 'dir', 'size', 'duration', 'width', 'height',
+                 'video_codec', 'audio_codec']}
 
-    # filename = Path(filepath).stem
+    metadata['id'] = get_hash(path)
+    
     filename = path.stem
     title, channel, date = parse_filename(filename)
     metadata['title'] = title
-    metadata['channel'] = channel
-    metadata['date'] = date
+    metadata['channel'] = None if channel == "NA" else channel
+    metadata['date'] = None if date == "NA" else date
+
     metadata['container'] = path.suffix[1:]
 
-    # filesize = Path(filepath).stat().st_size
+    metadata['dir'] = path.parent
+
     filesize = path.stat().st_size
-    metadata['size'] = convert_byte(filesize)
+    metadata['size'] = filesize
 
     vid = ffmpeg.probe(path)
     vid_metalist = vid['streams']
-    try:
-        duration_sec = vid_metalist[0]['duration']
-        duration_str = time.strftime('%H:%M:%S', time.gmtime(int(float(duration_sec))))
-        metadata['duration'] = duration_str
+    vid_metalist_video = vid_metalist[0]
+    vid_metalist_audio = vid_metalist[1]
+    duration_sec = vid_metalist_video.get('duration')
+    duration_str = time.strftime('%H:%M:%S', time.gmtime(int(float(duration_sec))))
+    metadata['duration'] = duration_str
 
-        metadata['height'] = vid_metalist[0]['coded_height']
-        metadata['width'] = vid_metalist[0]['coded_width']
-        metadata['video_codec'] = vid_metalist[0]['codec_name']
-        metadata['audio_codec'] = vid_metalist[1]['codec_name']
-        metadata['resolution'] = '{} X {}'.format(metadata['height'], metadata['width'])
-    except KeyError:
-        print("key error: ", filename)
+    metadata['width'] = vid_metalist_video.get('codedwidth')
+    metadata['height'] = vid_metalist_video.get('coded_height')
+    metadata['video_codec'] = vid_metalist_video.get('codec_name')
+    metadata['audio_codec'] = vid_metalist_audio.get('codec_name')
+    # metadata['resolution'] = '{} X {}'.format(metadata['height'], metadata['width'])
+
     return metadata
 
-# def get_byte(filepath) -> str:
-#
-#
+
+def get_hash(path: Path):
+    with open(str(path), 'rb') as f:
+        file_hash = hashlib.blake2b()
+        while chunk := f.read(8192):
+            file_hash.update(chunk)
+    return file_hash.hexdigest()
+
+
 def findVideoMeta(filepath):
     cmd = "ffprobe -v quiet -print_format json -show_streams"
     args = shlex.split(cmd)
@@ -51,8 +64,8 @@ def findVideoMeta(filepath):
     ffprobeOutput = subprocess.check_output(args).decode('utf-8')
     ffprobeOutput = json.loads(ffprobeOutput)
     return ffprobeOutput
-#
-#
+
+
 def convert_byte(filesize) -> str:
     KB = 1024
     MB = 1024 * 1024
@@ -109,6 +122,3 @@ if __name__ == '__main__':
 
     path = Path(filepath)
     print(parse_video(path))
-
-
-

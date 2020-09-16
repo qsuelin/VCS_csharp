@@ -1,50 +1,12 @@
-﻿<Properties StartupConfiguration="{3A4DB5E5-702A-4535-9AD7-BEA0432A70C5}|VCS">
-  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Views/Video/Edit.cshtml">
+﻿<Properties StartupConfiguration="{3A4DB5E5-702A-4535-9AD7-BEA0432A70C5}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Controllers/VideoController.cs">
     <Files>
       <File FileName="VCS/Views/Video/Index.cshtml" Line="6" Column="35" />
-      <File FileName="VCS/Views/Search/Index.cshtml" Line="4" Column="1" />
-      <File FileName="VCS/Views/Video/Edit.cshtml" Line="23" Column="7" />
+      <File FileName="VCS/Views/Search/Index.cshtml" />
+      <File FileName="VCS/Views/Video/Edit.cshtml" />
+      <File FileName="VCS/Controllers/HomeController.cs" />
+      <File FileName="VCS/Controllers/VideoController.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="VCS" expanded="True">
-            <Node name="VCS" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-              <Node name="Areas" expanded="True">
-                <Node name="Identity" expanded="True">
-                  <Node name="Pages" expanded="True">
-                    <Node name="Account" expanded="True">
-                      <Node name="Login.cshtml" expanded="True" />
-                      <Node name="Logout.cshtml" expanded="True" />
-                      <Node name="RegisterConfirmation.cshtml" expanded="True" />
-                    </Node>
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="ViewModel" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
-                <Node name="Search" expanded="True" />
-                <Node name="Shared" expanded="True" />
-                <Node name="Video" expanded="True">
-                  <Node name="Edit.cshtml" selected="True" />
-                </Node>
-              </Node>
-              <Node name="wwwroot" expanded="True" />
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.VCS PreferredExecutionTarget="/Applications/Google Chrome.app" />

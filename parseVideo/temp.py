@@ -1,31 +1,21 @@
-import os
-import pathlib
+def check_include(list1, list2):
+    i = 0
+    while i <= len(l2) - len(l1):
+        j = 0
+        while j < len(l1):
+            if l2[i] == l1[j]:
+                i += 1
+                j += 1
+                if j == len(l1):
+                    return True
+            else:
+                break;
+        i += 1
+
+    return False
 
 
-dir = "/Users/lin/Desktop"
-# for filepath in pathlib.Path(dir).glob('**/*'):
-#     print(filepath.absolute())
-# print("#######")
-
-file = '/Users/lin/Desktop/Desktop - LQ Shared MacBook Pro/.DS_Store'
-temp = pathlib.Path(file)
-print(temp.suffix == "")
-print('x', temp)
-
-def getpath(dir):
-    for entry in pathlib.Path(dir).iterdir():
-        if entry.is_file() and entry.suffix != "":
-            print(entry)
-        elif entry.is_dir():
-            getpath(entry)
-getpath(dir)
-# directory = os.scandir(dir)
-# print(directory)
-#
-# for entry in directory:
-#     print(entry)
-#
-# for root, dir, f in os.walk(directory):
-#     for file in f:
-#         print(os.path.join(root,file))
+l1 = [3, 4, 2]
+l2 = [8, 2, 5, 3, 4, 2, 3]
+print(check_include(l1, l2))
 

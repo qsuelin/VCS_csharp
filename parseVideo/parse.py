@@ -13,12 +13,18 @@ import pprint
 
 
 def parse_video(path: Path) -> dict:
+    print(path)
+    try:
+        vid = ffmpeg.probe(path)
+    except ffmpeg.Error as e:
+        print(e)
+        return
     metadata = {k: None for k in
                 ['title', 'channel', 'date', 'container', 'dir', 'size', 'duration', 'width', 'height',
                  'video_codec', 'audio_codec']}
 
     metadata['id'] = get_hash(path)
-    
+
     filename = path.stem
     title, channel, date = parse_filename(filename)
     metadata['title'] = title
@@ -27,23 +33,22 @@ def parse_video(path: Path) -> dict:
 
     metadata['container'] = path.suffix[1:]
 
-    metadata['dir'] = path.parent
+    metadata['dir'] = str(path.parent)
 
     filesize = path.stat().st_size
     metadata['size'] = filesize
 
-    vid = ffmpeg.probe(path)
-    vid_metalist = vid['streams']
-    vid_metalist_video = vid_metalist[0]
-    vid_metalist_audio = vid_metalist[1]
-    duration_sec = vid_metalist_video.get('duration')
-    duration_str = time.strftime('%H:%M:%S', time.gmtime(int(float(duration_sec))))
-    metadata['duration'] = duration_str
+    vid_streams = vid['streams']
+    vid_format = vid['format']
+    vid_streams_video = vid_streams[0]
+    vid_streams_audio = vid_streams[1]
+    # duration_str = time.strftime('%H:%M:%S', time.gmtime(int(float(duration_sec))))
+    metadata['duration'] = int(float(vid_format.get('duration')))
 
-    metadata['width'] = vid_metalist_video.get('codedwidth')
-    metadata['height'] = vid_metalist_video.get('coded_height')
-    metadata['video_codec'] = vid_metalist_video.get('codec_name')
-    metadata['audio_codec'] = vid_metalist_audio.get('codec_name')
+    metadata['width'] = vid_streams_video.get('coded_width')
+    metadata['height'] = vid_streams_video.get('coded_height')
+    metadata['video_codec'] = vid_streams_video.get('codec_name')
+    metadata['audio_codec'] = vid_streams_audio.get('codec_name')
     # metadata['resolution'] = '{} X {}'.format(metadata['height'], metadata['width'])
 
     return metadata
@@ -92,7 +97,7 @@ def parse_filename(filename) -> tuple:
         title = ''.join(namelist[:-2])
         channel = namelist[-2]
         date_str = namelist[-1]
-        date = datetime.date(int(date_str[:4]), int(date_str[4:6]), int(date_str[6:]))
+        date = datetime.date(int(date_str[:4]), int(date_str[4:6]), int(date_str[6:8]))
 
     return title, channel, date
 

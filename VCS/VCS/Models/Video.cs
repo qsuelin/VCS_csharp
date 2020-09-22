@@ -5,16 +5,16 @@ namespace VCS.Models
 {
     public class Video
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Title { get; set; }
-
         public string Channel { get; set; }
         public DateTime Date { get; set; }
-
-        public string Duration { get; set; }
-        public string Size { get; set; }
-        public string Resolution { get; set; }
         public string Container { get; set; }
+        public string Dir { get; set; }
+        public int Size { get; set; }
+        public int Duration { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
         public string Video_Codec { get; set; }
         public string Audio_Codec { get; set; }
 

@@ -48,13 +48,13 @@ namespace VCS.Controllers
                 displayVideos.Add(newDisplayJob);
             }
 
-            ViewBag.jobs = displayVideos;
+            ViewBag.videos = displayVideos;
             var onePageofVideos = displayVideos.ToPagedList(pageNumber, pageSize);
             
             return View(onePageofVideos);
         }
 
-        public IActionResult Detail(int id)
+        public IActionResult Detail(string id)
         {
             Video theVideo = context.Videos.Find(id);
       
@@ -63,7 +63,7 @@ namespace VCS.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(string id)
         {
             Video theVideo = context.Videos.Find(id);
             List<VideoTag> videoTags = context.VideoTags
@@ -79,7 +79,7 @@ namespace VCS.Controllers
         [HttpPost]
         public IActionResult Edit(EditViewModel editViewModel)
         {
-            int videoId = editViewModel.VideoId;
+            string videoId = editViewModel.VideoId;
 
             if (ModelState.IsValid)
             {

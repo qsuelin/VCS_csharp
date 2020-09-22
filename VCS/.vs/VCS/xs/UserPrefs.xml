@@ -1,12 +1,40 @@
 ﻿<Properties StartupConfiguration="{3A4DB5E5-702A-4535-9AD7-BEA0432A70C5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Controllers/VideoController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Models/DupVideo.cs">
     <Files>
-      <File FileName="VCS/Views/Video/Index.cshtml" Line="6" Column="35" />
-      <File FileName="VCS/Views/Search/Index.cshtml" />
-      <File FileName="VCS/Views/Video/Edit.cshtml" />
-      <File FileName="VCS/Controllers/HomeController.cs" />
+      <File FileName="VCS/Models/Video.cs" Line="37" Column="10" />
+      <File FileName="VCS/ViewModel/DetailViewModel.cs" Line="19" Column="47" />
+      <File FileName="VCS/ViewModel/EditViewModel.cs" Line="17" Column="35" />
+      <File FileName="VCS/Views/Video/Detail.cshtml" Line="19" Column="14" />
+      <File FileName="VCS/Models/VideoTag.cs" Line="12" Column="10" />
+      <File FileName="VCS/Models/Tag.cs" Line="28" Column="1" />
       <File FileName="VCS/Controllers/VideoController.cs" Line="1" Column="1" />
+      <File FileName="VCS/Data/VideoDbContext.cs" Line="13" Column="55" />
+      <File FileName="VCS/Models/DupVideo.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="VCS" expanded="True">
+            <Node name="VCS" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="DupVideo.cs" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="ViewModel" expanded="True" />
+              <Node name="wwwroot" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.VCS PreferredExecutionTarget="/Applications/Google Chrome.app" />

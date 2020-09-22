@@ -1,8 +1,5 @@
 import mysql.connector
-
-
-class ConnectionError(Exception):
-    pass
+from mysql.connector import cursor
 
 
 class CredentialsError(Exception):

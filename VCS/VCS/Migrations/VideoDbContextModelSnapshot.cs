@@ -231,9 +231,8 @@ namespace VCS.Migrations
 
             modelBuilder.Entity("VCS.Models.Video", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Audio_Codec")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -247,14 +246,17 @@ namespace VCS.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Duration")
+                    b.Property<string>("Dir")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Resolution")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Size")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<int>("Height")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Size")
+                        .HasColumnType("int");
 
                     b.Property<int?>("TagId")
                         .HasColumnType("int");
@@ -265,6 +267,9 @@ namespace VCS.Migrations
                     b.Property<string>("Video_Codec")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("Width")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TagId");
@@ -274,8 +279,8 @@ namespace VCS.Migrations
 
             modelBuilder.Entity("VCS.Models.VideoTag", b =>
                 {
-                    b.Property<int>("VideoId")
-                        .HasColumnType("int");
+                    b.Property<string>("VideoId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<int>("TagId")
                         .HasColumnType("int");

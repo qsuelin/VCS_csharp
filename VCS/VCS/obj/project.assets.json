@@ -9832,7 +9832,7 @@
       "outputPath": "/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/lin/.config/NuGet/NuGet.Config"
+        "/Users/lin/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

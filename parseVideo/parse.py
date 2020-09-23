@@ -20,10 +20,10 @@ def parse_video(path: Path) -> dict:
         print(e)
         return
     metadata = {k: None for k in
-                ['title', 'channel', 'date', 'container', 'dir', 'size', 'duration', 'width', 'height',
+                ['hash', 'title', 'channel', 'date', 'container', 'dir', 'size', 'duration', 'width', 'height',
                  'video_codec', 'audio_codec']}
 
-    metadata['id'] = get_hash(path)
+    metadata['hash'] = get_hash(path)
 
     filename = path.stem
     title, channel, date = parse_filename(filename)

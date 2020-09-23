@@ -39,7 +39,7 @@ namespace VCS.Controllers
                 foreach (var video in videos)
                 {
                     List<VideoTag> videoTags = context.VideoTags
-                        .Where(vt => vt.VideoId == video.Id)
+                        .Where(vt => vt.VideoHash == video.Hash)
                         .Include(vt => vt.Tag)
                         .ToList();
 
@@ -68,7 +68,7 @@ namespace VCS.Controllers
                 foreach (var video in videoTags)
                 {
                     Video tagFoundVideo = context.Videos
-                        .Single(v => v.Id == video.VideoId);
+                        .Single(v => v.Hash == video.VideoHash);
 
                     tagFoundVideos.Add(tagFoundVideo);
                 }
@@ -80,10 +80,10 @@ namespace VCS.Controllers
                 foreach (var video in videoTags)
                 {
                     Video foundVideo = context.Videos
-                        .Single(v => v.Id == video.VideoId);
+                        .Single(v => v.Hash == video.VideoHash);
 
                     List<VideoTag> displayTags = context.VideoTags
-                        .Where(vt => vt.VideoId == foundVideo.Id)
+                        .Where(vt => vt.VideoHash == foundVideo.Hash)
                         .Include(vt => vt.Tag)
                         .ToList();
 

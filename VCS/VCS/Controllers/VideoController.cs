@@ -39,7 +39,7 @@ namespace VCS.Controllers
             foreach (var video in videoList)
             {
                 List<VideoTag> videoTags = context.VideoTags
-                    .Where(vt => vt.VideoId == video.Id)
+                    .Where(vt => vt.VideoHash == video.Hash)
                     .Include(vt => vt.Tag)
                     .Include(vt => vt.Video)
                     .ToList();
@@ -54,7 +54,7 @@ namespace VCS.Controllers
             return View(onePageofVideos);
         }
 
-        public IActionResult Detail(string id)
+        public IActionResult Detail(int id)
         {
             Video theVideo = context.Videos.Find(id);
       
@@ -63,11 +63,11 @@ namespace VCS.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {
             Video theVideo = context.Videos.Find(id);
             List<VideoTag> videoTags = context.VideoTags
-                .Where(vt => vt.VideoId == id)
+                .Where(vt => vt.VideoHash == theVideo.Hash)
                 .Include(vt => vt.Video)
                 .Include(vt => vt.Tag)
                 .ToList();
@@ -79,8 +79,7 @@ namespace VCS.Controllers
         [HttpPost]
         public IActionResult Edit(EditViewModel editViewModel)
         {
-            string videoId = editViewModel.VideoId;
-
+            string hash = editViewModel.Hash;
             if (ModelState.IsValid)
             {
                 string newTagName = editViewModel.TagName;
@@ -95,7 +94,7 @@ namespace VCS.Controllers
 
                     videoTag = new VideoTag
                     {
-                        VideoId = videoId,
+                        VideoHash = hash,
                         Tag = newTag,
                         TagId = tagId
                     };
@@ -109,7 +108,7 @@ namespace VCS.Controllers
                     tagId = context.Tags.Where(t => t.Name == newTagName).Single().Id;
 
                     List<VideoTag> existingVideoTags = context.VideoTags
-                    .Where(vt => vt.VideoId == videoId)
+                    .Where(vt => vt.VideoHash == hash)
                     .Where(vt => vt.TagId == tagId)
                     .ToList();
 
@@ -118,7 +117,7 @@ namespace VCS.Controllers
                     {
                         videoTag = new VideoTag
                         {
-                            VideoId = videoId,
+                            VideoHash = hash,
                             TagId = tagId
                         };
 
@@ -128,7 +127,7 @@ namespace VCS.Controllers
                     
                 }
             }
-            return Redirect("/Video/Edit/" + videoId);
+            return Redirect("/Video/Edit/" + editViewModel.VideoId);
         }
 
         //public IActionResult Results(string searchTerm)

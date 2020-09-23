@@ -24,7 +24,7 @@ def sync_db():
             sync_dir(dir_path)
 
 
-def sync_dir(dir_path:Path):
+def sync_dir(dir_path: Path):
     with UseDatabase(config) as cursor:
         for entry in dir_path.iterdir():
             if entry.is_file() and entry.suffix != '':
@@ -33,18 +33,20 @@ def sync_dir(dir_path:Path):
                 _SQL = "SELECT * FROM VIDEOS WHERE Size = (%s)"
                 cursor.execute(_SQL, (candidate_size,))
                 result = cursor.fetchall()  # return a empty list if not found.
+                # if no same size, insert directly
                 if not result:
                     populate_file(entry)
                 else:
-                    # compute hash
+                    # if same size, check hash
                     candidate_hash = get_hash(entry)
-                    _SQL = "SELECT Id FROM VIDEOS"
+                    _SQL = "SELECT Hash, Dir, Title FROM VIDEOS"
                     cursor.execute(_SQL)
                     result = cursor.fetchall()
-                    if any(candidate_hash == record[0] for record in result):
-                        update_duptable(entry)
-                    else:
-                        populate_file(entry)
+                    for record in result:
+                        existing_hash, existing_dir, existing_title = record
+                        # if hash equals, check if path equals, if yes, pass, if not insert
+                        if candidate_hash == existing_hash and entry != (Path(existing_dir)/existing_title):
+                            populate_file(entry)
             elif entry.is_dir():
                 sync_dir(entry)
 
@@ -156,12 +158,12 @@ def populate_file(path: Path):
         else:
             _SQL = """
             INSERT INTO VIDEOS 
-            (Id, Title, Channel, Date, Container, Dir, Size, Duration, Width, Height, Video_Codec, Audio_Codec) 
+            (Hash, Title, Channel, Date, Container, Dir, Size, Duration, Width, Height, Video_Codec, Audio_Codec) 
             VALUES 
             (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
 
-            cursor.execute(_SQL, (metadata['id'],
+            cursor.execute(_SQL, (metadata['hash'],
                               metadata['title'],
                               metadata['channel'],
                               metadata['date'],

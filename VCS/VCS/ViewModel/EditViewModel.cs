@@ -6,7 +6,8 @@ namespace VCS.ViewModel
 {
     public class EditViewModel
     {
-        public string VideoId { get; set; }
+        public int VideoId { get; set; }
+        public string Hash { get; set; }
         public string Title { get; set; }
         public string TagText { get; set; }
         public List<VideoTag> VideoTags {get; set;}
@@ -15,6 +16,7 @@ namespace VCS.ViewModel
         public EditViewModel(Video theVideo, List<VideoTag> videoTags)
         {
             VideoId = theVideo.Id;
+            Hash = theVideo.Hash;
             Title = theVideo.Title;
             VideoTags = videoTags;
 

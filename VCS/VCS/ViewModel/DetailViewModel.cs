@@ -6,7 +6,7 @@ namespace VCS.ViewModel
 {
     public class DetailViewModel   
     {
-        public string VideoId { get; set; }
+        public int VideoId { get; set; }
         public string Title { get; set; }
         public string Duration { get; set; }
         public string Size { get; set; }

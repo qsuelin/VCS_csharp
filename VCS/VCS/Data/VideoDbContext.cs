@@ -20,7 +20,7 @@ namespace VCS.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VideoTag>()
-                .HasKey(et => new { et.VideoId, et.TagId });
+                .HasKey(et => new { et.VideoHash, et.TagId });
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -57,9 +57,9 @@ namespace VCS.Controllers
         public IActionResult Detail(int id)
         {
             Video theVideo = context.Videos.Find(id);
-      
-            //DetailViewModel detailViewModel = new DetailViewModel(theVideo);
-            return View(theVideo);
+
+            DetailViewModel detailViewModel = new DetailViewModel(theVideo);
+            return View(detailViewModel);
         }
 
         [HttpGet]

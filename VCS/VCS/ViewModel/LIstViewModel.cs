@@ -6,7 +6,7 @@ namespace VCS.ViewModel
 {
     public class ListViewModel
     {
-        public string VideoId { get; set; }
+        public int VideoId { get; set; }
         public string Title { get; set; }
         public string Channel { get; set;}
         public string Date { get; set; }
@@ -14,6 +14,7 @@ namespace VCS.ViewModel
 
         public ListViewModel (Video theVideo, List<VideoTag> videoTags)
         {
+            VideoId = theVideo.Id;
             Title = theVideo.Title;
             Channel = theVideo.Channel;
             Date = theVideo.Date.ToShortDateString();

@@ -1,17 +1,18 @@
 ﻿<Properties StartupConfiguration="{3A4DB5E5-702A-4535-9AD7-BEA0432A70C5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Controllers/SearchController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Models/Video.cs">
     <Files>
-      <File FileName="VCS/Models/Video.cs" Line="8" Column="34" />
-      <File FileName="VCS/ViewModel/DetailViewModel.cs" Line="21" Column="35" />
+      <File FileName="VCS/Models/Video.cs" Line="11" Column="40" />
+      <File FileName="VCS/ViewModel/DetailViewModel.cs" Line="9" Column="20" />
       <File FileName="VCS/ViewModel/EditViewModel.cs" Line="19" Column="34" />
       <File FileName="VCS/Views/Video/Detail.cshtml" Line="19" Column="14" />
-      <File FileName="VCS/Models/VideoTag.cs" Line="6" Column="32" />
+      <File FileName="VCS/Models/VideoTag.cs" Line="16" Column="1" />
       <File FileName="VCS/Models/Tag.cs" Line="28" Column="1" />
       <File FileName="VCS/Controllers/VideoController.cs" Line="130" Column="67" />
-      <File FileName="VCS/Data/VideoDbContext.cs" Line="23" Column="49" />
+      <File FileName="VCS/Data/VideoDbContext.cs" Line="25" Column="10" />
       <File FileName="VCS/ViewModel/LIstViewModel.cs" Line="1" Column="1" />
       <File FileName="VCS/ViewModel/SearchViewModel.cs" Line="1" Column="1" />
-      <File FileName="VCS/Controllers/SearchController.cs" Line="42" Column="48" />
+      <File FileName="VCS/Controllers/SearchController.cs" Line="77" Column="1" />
+      <File FileName="VCS/Models/WatchDir.cs" Line="5" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,12 +23,11 @@
                 <Node name="FrameworkReferences" expanded="True" />
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True">
-                <Node name="SearchController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
-              <Node name="Migrations" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Video.cs" selected="True" />
+              </Node>
               <Node name="Properties" expanded="True" />
               <Node name="ViewModel" expanded="True" />
               <Node name="Views" expanded="True">

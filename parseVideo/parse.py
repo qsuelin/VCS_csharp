@@ -20,10 +20,8 @@ def parse_video(path: Path) -> dict:
         print(e)
         return
     metadata = {k: None for k in
-                ['hash', 'title', 'channel', 'date', 'container', 'dir', 'size', 'duration', 'width', 'height',
+                ['title', 'channel', 'date', 'container', 'dir', 'size', 'duration', 'width', 'height',
                  'video_codec', 'audio_codec']}
-
-    metadata['hash'] = get_hash(path)
 
     filename = path.stem
     title, channel, date = parse_filename(filename)
@@ -52,14 +50,6 @@ def parse_video(path: Path) -> dict:
     # metadata['resolution'] = '{} X {}'.format(metadata['height'], metadata['width'])
 
     return metadata
-
-
-def get_hash(path: Path):
-    with open(str(path), 'rb') as f:
-        file_hash = hashlib.blake2b()
-        while chunk := f.read(8192):
-            file_hash.update(chunk)
-    return file_hash.hexdigest()
 
 
 def findVideoMeta(filepath):

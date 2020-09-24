@@ -11,6 +11,7 @@ namespace VCS.Data
         public DbSet<Video> Videos { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<VideoTag> VideoTags { get; set; }
+        public DbSet<WatchDir> WatchDirs { get; set; }
 
         public VideoDbContext(DbContextOptions<VideoDbContext> options)
             :base(options)

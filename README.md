@@ -22,15 +22,31 @@ The goal of the video catalog system(VCS) application is to manage TB-size local
     * Deleted files
     * Moved files
     * Renamed files
-1. Detecting corrupt, truncated, damaged files
 1. Robust parsing script for various format of video files
-    * Not all formats store duration information at stream level, eg: Matroska
-    * Some files don't have standard filenames
+    * Not all formats store duration information at stream level, eg: `Matroska`
+    * Some files don't have standard filenames or multiple '.', eg:
+    `Screw-Wedge Table Feed Mechanism-Mechanisms X-20161203.f136.mp4`
 1. Manual duplication handling
     * show the complete list of alternative paths
     * ask user to pick the one to keep
     * call I/O to delete other files on local disk
+1. Call Python script in C#
+1. Optimize database performance
+    * create index on columns: Size, Hash
+1. Sync on-disk file -> DB
+    * Create TABLE WatchDirs to track on disk directories to watch   
+    * Walk through all the directories in WatchDirs on disk, and check if size/hash exists  in DB
+    * Update WatchDirs when load new directories
+1. Detecting corrupt, truncated, damaged files
 
+
+# Design
+## Iteration 1: Table Dup   
+Scenario: In table Videos, make hash as primary key, and make it as foreign key in table Dup.    
+Problem: difficulty to track changes of on-disk VS TABLE Dup
+
+## Iteration 2:  No Dup table. Hash not primary
+Scenorio: Auto-incremented primary key for Videos, non-unique hash meaning there will be multiple same videos in TABLE Videos. Then there will be no need for TABLE Dup.
 
 # ER Diagram
 

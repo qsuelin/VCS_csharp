@@ -1,18 +1,11 @@
 ﻿<Properties StartupConfiguration="{3A4DB5E5-702A-4535-9AD7-BEA0432A70C5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Models/Video.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/ViewModel/LIstViewModel.cs">
     <Files>
-      <File FileName="VCS/Models/Video.cs" Line="11" Column="40" />
-      <File FileName="VCS/ViewModel/DetailViewModel.cs" Line="9" Column="20" />
-      <File FileName="VCS/ViewModel/EditViewModel.cs" Line="19" Column="34" />
-      <File FileName="VCS/Views/Video/Detail.cshtml" Line="19" Column="14" />
-      <File FileName="VCS/Models/VideoTag.cs" Line="16" Column="1" />
-      <File FileName="VCS/Models/Tag.cs" Line="28" Column="1" />
-      <File FileName="VCS/Controllers/VideoController.cs" Line="130" Column="67" />
-      <File FileName="VCS/Data/VideoDbContext.cs" Line="25" Column="10" />
+      <File FileName="VCS/Models/Video.cs" Line="12" Column="43" />
+      <File FileName="VCS/Data/VideoDbContext.cs" Line="15" Column="1" />
+      <File FileName="VCS/ViewModel/DetailViewModel.cs" Line="23" Column="42" />
+      <File FileName="VCS/Controllers/VideoController.cs" Line="1" Column="1" />
       <File FileName="VCS/ViewModel/LIstViewModel.cs" Line="1" Column="1" />
-      <File FileName="VCS/ViewModel/SearchViewModel.cs" Line="1" Column="1" />
-      <File FileName="VCS/Controllers/SearchController.cs" Line="77" Column="1" />
-      <File FileName="VCS/Models/WatchDir.cs" Line="5" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,11 +18,12 @@
               </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Video.cs" selected="True" />
-              </Node>
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="ViewModel" expanded="True" />
+              <Node name="ViewModel" expanded="True">
+                <Node name="LIstViewModel.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
                 <Node name="Video" expanded="True" />
               </Node>

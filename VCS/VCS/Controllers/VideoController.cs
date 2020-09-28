@@ -135,7 +135,7 @@ namespace VCS.Controllers
         public IActionResult Play(int id)
         {
             Video theVideo = context.Videos.Find(id);
-            ViewBag.path = theVideo.Dir + theVideo.Title;
+            ViewBag.path = "file://" + theVideo.Dir + theVideo.Title;
 
             return View();
         }

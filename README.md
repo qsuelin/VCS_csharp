@@ -36,7 +36,7 @@ The goal of the video catalog system(VCS) application is to manage TB-size local
 1. Sync on-disk file -> DB
     * Create TABLE WatchDirs to track on disk directories to watch   
     * Walk through all the directories in WatchDirs on disk, and check if size/hash exists  in DB
-    * Update WatchDirs when load new directories
+    * Update WatchDirs when load new directories. Make sure WatchDir is not a parent/child of any existing record in WatchDirs
 1. Detecting corrupt, truncated, damaged files
 
 

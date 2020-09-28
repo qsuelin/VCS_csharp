@@ -4,11 +4,11 @@
       <File FileName="VCS/Models/Video.cs" Line="33" Column="1" />
       <File FileName="VCS/Data/VideoDbContext.cs" Line="5" Column="18" />
       <File FileName="VCS/ViewModel/DetailViewModel.cs" Line="16" Column="48" />
-      <File FileName="VCS/Controllers/VideoController.cs" Line="142" Column="1" />
+      <File FileName="VCS/Controllers/VideoController.cs" Line="138" Column="40" />
       <File FileName="VCS/ViewModel/LIstViewModel.cs" Line="20" Column="48" />
       <File FileName="VCS/Views/Video/Index.cshtml" Line="26" Column="54" />
       <File FileName="VCS/Views/Video/Detail.cshtml" Line="1" Column="1" />
-      <File FileName="VCS/Views/Video/Play.cshtml" Line="5" Column="97" />
+      <File FileName="VCS/Views/Video/Play.cshtml" Line="4" Column="1" />
       <File FileName="VCS/ViewModel/EditViewModel.cs" Line="1" Column="1" />
       <File FileName="VCS/Views/Video/Edit.cshtml" Line="1" Column="1" />
     </Files>

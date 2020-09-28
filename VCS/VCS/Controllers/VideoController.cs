@@ -130,6 +130,16 @@ namespace VCS.Controllers
             return Redirect("/Video/Edit/" + editViewModel.VideoId);
         }
 
+
+        [HttpGet]
+        public IActionResult Play(int id)
+        {
+            Video theVideo = context.Videos.Find(id);
+            ViewBag.path = theVideo.Dir + theVideo.Title;
+
+            return View();
+        }
+
         //public IActionResult Results(string searchTerm)
         //{
         //    List<Video> videos;

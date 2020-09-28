@@ -1,11 +1,16 @@
 ﻿<Properties StartupConfiguration="{3A4DB5E5-702A-4535-9AD7-BEA0432A70C5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/ViewModel/LIstViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VCS/Controllers/VideoController.cs">
     <Files>
-      <File FileName="VCS/Models/Video.cs" Line="12" Column="43" />
-      <File FileName="VCS/Data/VideoDbContext.cs" Line="15" Column="1" />
-      <File FileName="VCS/ViewModel/DetailViewModel.cs" Line="23" Column="42" />
-      <File FileName="VCS/Controllers/VideoController.cs" Line="1" Column="1" />
-      <File FileName="VCS/ViewModel/LIstViewModel.cs" Line="1" Column="1" />
+      <File FileName="VCS/Models/Video.cs" Line="33" Column="1" />
+      <File FileName="VCS/Data/VideoDbContext.cs" Line="5" Column="18" />
+      <File FileName="VCS/ViewModel/DetailViewModel.cs" Line="16" Column="48" />
+      <File FileName="VCS/Controllers/VideoController.cs" Line="142" Column="1" />
+      <File FileName="VCS/ViewModel/LIstViewModel.cs" Line="20" Column="48" />
+      <File FileName="VCS/Views/Video/Index.cshtml" Line="26" Column="54" />
+      <File FileName="VCS/Views/Video/Detail.cshtml" Line="1" Column="1" />
+      <File FileName="VCS/Views/Video/Play.cshtml" Line="5" Column="97" />
+      <File FileName="VCS/ViewModel/EditViewModel.cs" Line="1" Column="1" />
+      <File FileName="VCS/Views/Video/Edit.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,15 +21,16 @@
                 <Node name="FrameworkReferences" expanded="True" />
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="VideoController.cs" selected="True" />
+              </Node>
               <Node name="Data" expanded="True" />
               <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="ViewModel" expanded="True">
-                <Node name="LIstViewModel.cs" selected="True" />
-              </Node>
+              <Node name="ViewModel" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
                 <Node name="Video" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />
@@ -39,9 +45,7 @@
   <MonoDevelop.Ide.ItemProperties.VCS PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/lin/Documents/codecamp2020/liftoff/VCS_csharp/VCS/VCS/Models/Video.cs" relfile="VCS/Models/Video.cs" line="5" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
